@@ -53,6 +53,7 @@
 		EFA7BDFD1D46A89E00979012 /* facetShader_vs.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = facetShader_vs.glsl; path = ../resources/facetShader_vs.glsl; sourceTree = "<group>"; };
 		EFA7BE001D46AB5900979012 /* FacetSpline.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = FacetSpline.cpp; path = ../src/FacetSpline.cpp; sourceTree = "<group>"; };
 		EFA7BE011D46AB5900979012 /* FacetSpline.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = FacetSpline.hpp; path = ../src/FacetSpline.hpp; sourceTree = "<group>"; };
+		EFA7BE041D46C2D800979012 /* NoiseWalker.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = NoiseWalker.hpp; path = ../src/NoiseWalker.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +92,7 @@
 				EF76DB8A1D4641D400691121 /* Node.hpp */,
 				EFA7BE001D46AB5900979012 /* FacetSpline.cpp */,
 				EFA7BE011D46AB5900979012 /* FacetSpline.hpp */,
+				EFA7BE041D46C2D800979012 /* NoiseWalker.hpp */,
 				EF76DB8C1D46704300691121 /* Facet.cpp */,
 				EF76DB8D1D46704300691121 /* Facet.hpp */,
 			);

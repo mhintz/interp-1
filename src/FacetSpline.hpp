@@ -10,6 +10,7 @@
 
 #include "Node.hpp"
 #include "Facet.hpp"
+#include "NoiseWalker.hpp"
 
 using namespace ci;
 using std::vector;
@@ -30,6 +31,10 @@ public:
 
 private:
 	vector<FacetRef> mFacets;
+	vec3 mOrigin;
+	vec3 mDirection;
+	NoiseWalker mXWalker = NoiseWalker(0.001f);
+	NoiseWalker mYWalker = NoiseWalker(0.001f);
 
 	int mNumCtrlPts = 10;
 	float mCtrlAngleInc = 1.34 * M_2_PI;
@@ -43,5 +48,3 @@ private:
 	bool mDrawSpline = true;
 	bool mDrawFrames = true;
 };
-
-vector<mat4> calculateFrames(BSpline3f const & spline, int numSamples);

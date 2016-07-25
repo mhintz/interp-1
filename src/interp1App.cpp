@@ -74,6 +74,9 @@ void interp1App::keyDown(KeyEvent event) {
 
 void interp1App::update()
 {
+	for (FacetSplineRef const & facetSpline : mFacetSplines) {
+		// facetSpline->update();
+	}
 }
 
 void interp1App::draw()

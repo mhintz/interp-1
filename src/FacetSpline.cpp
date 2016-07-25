@@ -23,6 +23,7 @@ vector<mat4> calculateFrames(BSpline3f const & spline, int numSamples) {
   // Create the frames
   vector<mat4> framesList;
   framesList.resize(numSamples);
+
   framesList.at(0) = firstFrame(pointsList.at(0), pointsList.at(1), pointsList.at(2));
   for (int fN = 1; fN < numSamples - 1; fN++) {
       framesList.at(fN) = nextFrame(framesList.at(fN - 1), pointsList.at(fN - 1), pointsList.at(fN), tangentsList.at(fN - 1), tangentsList.at(fN));
@@ -46,28 +47,39 @@ void FacetSpline::decomposeFrame(mat4 const & theFrame, vec3 * pos, vec3 * xAxis
 	// *zAxis = vec3(theFrame * vec4( 0, 0, 1, 0 ));
 }
 
-FacetSpline::FacetSpline(vec3 origin, vec3 direction) {
-	direction = normalize(direction);
-	quat directionOrientation = glm::rotation(vec3(0.0, 1.0, 0.0), direction);
+FacetSpline::FacetSpline(vec3 origin, vec3 direction) : mOrigin(origin), mDirection(normalize(direction)) {
+	for (int i = 0; i < mNumFacets; i++) {
+	    mFacets.push_back(Facet::create(vec3(), quat()));
+	}
 
-	vector<vec3> splinePts = { origin };
+	this->update();
+}
+
+void FacetSpline::update() {
+	mXWalker.step();
+	mYWalker.step();
+
+	vector<vec3> splinePts;
+
+	quat directionOrientation = glm::rotation(vec3(0.0, 0.0, 1.0), mDirection);
 	float tInc = 1.0f / (float) (mNumCtrlPts - 1);
+	float noiseInc = 0.01f;
 	for (int num = 0; num < mNumCtrlPts; num++) {
-		origin += mSplineIncrement * direction;
-		float ctrlAngle = num * mCtrlAngleInc;
-		float tVal = num * tInc;
-		vec3 offset = directionOrientation * vec3(sinf(ctrlAngle), 0.0f, cosf(ctrlAngle));
-		splinePts.push_back(origin + offset * easeOutCubic(tVal) * mSplineRadius);
+		vec3 origin = mOrigin + (num * mSplineIncrement) * mDirection;
+		float xOffset = mXWalker.sampleAt(noiseInc);
+		float yOffset = mYWalker.sampleAt(noiseInc);
+		vec3 offset = directionOrientation * vec3(xOffset, yOffset, 0.0);
+		splinePts.push_back(origin + mSplineRadius * offset);
 	}
 
 	mSpline = BSpline3f(splinePts, mSplineDegree, false, true);
 
 	mFrames = calculateFrames(mSpline, mNumFacets);
 
-	for (mat4 const & theFrame : mFrames) {
+	for (int idx = 0; idx < mNumFacets; idx++) {
 		vec3 facetPos, facetXAx, facetZAx, facetYAx;
-		FacetSpline::decomposeFrame(theFrame, & facetPos, & facetXAx, & facetYAx, & facetZAx);
-	    mFacets.push_back(Facet::create(facetPos, quat_cast(mat3(facetXAx, facetYAx, facetZAx))));
+		FacetSpline::decomposeFrame(mFrames.at(idx), & facetPos, & facetXAx, & facetYAx, & facetZAx);
+		mFacets.at(idx)->update(facetPos, quat_cast(mat3(facetXAx, facetYAx, facetZAx)), vec3(1.0));
 	}
 }
 
