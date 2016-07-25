@@ -23,6 +23,7 @@
 		EF76DB8E1D46704300691121 /* Facet.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EF76DB8C1D46704300691121 /* Facet.cpp */; };
 		EFA7BDFE1D46A89E00979012 /* facetShader_fs.glsl in Resources */ = {isa = PBXBuildFile; fileRef = EFA7BDFC1D46A89E00979012 /* facetShader_fs.glsl */; };
 		EFA7BDFF1D46A89E00979012 /* facetShader_vs.glsl in Resources */ = {isa = PBXBuildFile; fileRef = EFA7BDFD1D46A89E00979012 /* facetShader_vs.glsl */; };
+		EFA7BE021D46AB5900979012 /* FacetSpline.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EFA7BE001D46AB5900979012 /* FacetSpline.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +51,8 @@
 		EF76DB8D1D46704300691121 /* Facet.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = Facet.hpp; path = ../src/Facet.hpp; sourceTree = "<group>"; };
 		EFA7BDFC1D46A89E00979012 /* facetShader_fs.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = facetShader_fs.glsl; path = ../resources/facetShader_fs.glsl; sourceTree = "<group>"; };
 		EFA7BDFD1D46A89E00979012 /* facetShader_vs.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = facetShader_vs.glsl; path = ../resources/facetShader_vs.glsl; sourceTree = "<group>"; };
+		EFA7BE001D46AB5900979012 /* FacetSpline.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = FacetSpline.cpp; path = ../src/FacetSpline.cpp; sourceTree = "<group>"; };
+		EFA7BE011D46AB5900979012 /* FacetSpline.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = FacetSpline.hpp; path = ../src/FacetSpline.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +89,8 @@
 			children = (
 				3173F971B21542E79751D87A /* interp1App.cpp */,
 				EF76DB8A1D4641D400691121 /* Node.hpp */,
+				EFA7BE001D46AB5900979012 /* FacetSpline.cpp */,
+				EFA7BE011D46AB5900979012 /* FacetSpline.hpp */,
 				EF76DB8C1D46704300691121 /* Facet.cpp */,
 				EF76DB8D1D46704300691121 /* Facet.hpp */,
 			);
@@ -236,6 +241,7 @@
 			files = (
 				EF76DB8E1D46704300691121 /* Facet.cpp in Sources */,
 				EACB6C72DEFE455FBE6BFBCF /* interp1App.cpp in Sources */,
+				EFA7BE021D46AB5900979012 /* FacetSpline.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
