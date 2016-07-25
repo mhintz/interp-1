@@ -1,8 +1,8 @@
 #pragma once
 #include "cinder/CinderResources.h"
 
-//#define RES_MY_RES			CINDER_RESOURCE( ../resources/, image_name.png, 128, IMAGE )
-
+#define VS_FACET_SHADER			CINDER_RESOURCE( ../resources/, facetShader_vs.glsl, 128, GLSL)
+#define FS_FACET_SHADER			CINDER_RESOURCE( ../resources/, facetShader_fs.glsl, 129, GLSL)
 
 
 
