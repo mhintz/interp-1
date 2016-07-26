@@ -24,6 +24,7 @@
 		EFA7BDFE1D46A89E00979012 /* facetShader_fs.glsl in Resources */ = {isa = PBXBuildFile; fileRef = EFA7BDFC1D46A89E00979012 /* facetShader_fs.glsl */; };
 		EFA7BDFF1D46A89E00979012 /* facetShader_vs.glsl in Resources */ = {isa = PBXBuildFile; fileRef = EFA7BDFD1D46A89E00979012 /* facetShader_vs.glsl */; };
 		EFA7BE021D46AB5900979012 /* FacetSpline.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EFA7BE001D46AB5900979012 /* FacetSpline.cpp */; };
+		EFA7BE081D47B29500979012 /* ShaderCache.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EFA7BE061D47B29500979012 /* ShaderCache.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +55,8 @@
 		EFA7BE001D46AB5900979012 /* FacetSpline.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = FacetSpline.cpp; path = ../src/FacetSpline.cpp; sourceTree = "<group>"; };
 		EFA7BE011D46AB5900979012 /* FacetSpline.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = FacetSpline.hpp; path = ../src/FacetSpline.hpp; sourceTree = "<group>"; };
 		EFA7BE041D46C2D800979012 /* NoiseWalker.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = NoiseWalker.hpp; path = ../src/NoiseWalker.hpp; sourceTree = "<group>"; };
+		EFA7BE061D47B29500979012 /* ShaderCache.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ShaderCache.cpp; path = ../src/ShaderCache.cpp; sourceTree = "<group>"; };
+		EFA7BE071D47B29500979012 /* ShaderCache.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = ShaderCache.hpp; path = ../src/ShaderCache.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +98,8 @@
 				EFA7BE041D46C2D800979012 /* NoiseWalker.hpp */,
 				EF76DB8C1D46704300691121 /* Facet.cpp */,
 				EF76DB8D1D46704300691121 /* Facet.hpp */,
+				EFA7BE061D47B29500979012 /* ShaderCache.cpp */,
+				EFA7BE071D47B29500979012 /* ShaderCache.hpp */,
 			);
 			name = Source;
 			sourceTree = "<group>";
@@ -244,6 +249,7 @@
 				EF76DB8E1D46704300691121 /* Facet.cpp in Sources */,
 				EACB6C72DEFE455FBE6BFBCF /* interp1App.cpp in Sources */,
 				EFA7BE021D46AB5900979012 /* FacetSpline.cpp in Sources */,
+				EFA7BE081D47B29500979012 /* ShaderCache.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

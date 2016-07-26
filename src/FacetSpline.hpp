@@ -10,6 +10,7 @@
 #include "Node.hpp"
 #include "Facet.hpp"
 #include "NoiseWalker.hpp"
+#include "ShaderCache.hpp"
 
 using namespace ci;
 

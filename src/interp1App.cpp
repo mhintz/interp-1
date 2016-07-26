@@ -7,6 +7,7 @@
 #include "cinder/CameraUi.h"
 
 #include "FacetSpline.hpp"
+#include "ShaderCache.hpp"
 
 using namespace ci;
 using namespace ci::app;
@@ -74,6 +75,9 @@ void interp1App::keyDown(KeyEvent event) {
 
 void interp1App::update()
 {
+	vec3 cameraPos = mUiCamera.getCamera().getEyePoint();
+	getFacetShader()->uniform("uCameraPosition", cameraPos);
+
 	for (FacetSplineRef const & facetSpline : mFacetSplines) {
 		facetSpline->update();
 	}

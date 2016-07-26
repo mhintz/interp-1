@@ -1,11 +1,9 @@
 #include "Facet.hpp"
 
 using namespace ci;
-using namespace ci::app;
 
-Facet::Facet(vec3 position, quat orientation) : mNode(position, orientation, vec3(1)) {
+Facet::Facet(vec3 position, quat orientation, gl::GlslProgRef facetShader) : mNode(position, orientation, vec3(1)) {
 	static geom::Plane facetGeom = geom::Plane();
-	static gl::GlslProgRef facetShader = gl::GlslProg::create(loadResource(VS_FACET_SHADER), loadResource(FS_FACET_SHADER));
 	auto facetColor = geom::Constant(geom::COLOR, Color(CM_RGB, randFloat(0.4), randFloat(0.4, 0.8), randFloat(0.4, 0.8)));
 	mBatch = gl::Batch::create(facetGeom >> facetColor, facetShader);
 }

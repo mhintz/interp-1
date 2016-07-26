@@ -51,7 +51,7 @@ void FacetSpline::decomposeFrame(mat4 const & theFrame, vec3 * pos, vec3 * xAxis
 
 FacetSpline::FacetSpline(vec3 origin, vec3 direction) : mOrigin(origin), mDirection(normalize(direction)) {
 	for (int i = 0; i < mNumFacets; i++) {
-	    mFacets.push_back(Facet::create(vec3(), quat()));
+	    mFacets.push_back(Facet::create(vec3(), quat(), getFacetShader()));
 	}
 
 	mGlobalScaleOffset = randFloat(10.0);

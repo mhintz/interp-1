@@ -1,9 +1,20 @@
 #version 330
 
+in vec3 fWorldPosition;
+in vec3 fNormal;
 in vec4 fColor;
+
+uniform vec3 uCameraPosition;
 
 out vec4 FragColor;
 
 void main() {
-  FragColor = fColor;
+  vec3 toCamera = normalize(uCameraPosition - fWorldPosition);
+  vec3 normal = normalize(fNormal);
+
+  float dotValue = abs(dot(normal, toCamera));
+
+  vec3 partialColor = fract(fColor.xyz + vec3(dotValue / 3.0, dotValue / 2.0, dotValue / 1.0));
+
+  FragColor = vec4(partialColor, fColor.a);
 }
