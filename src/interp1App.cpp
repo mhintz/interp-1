@@ -40,15 +40,15 @@ void interp1App::prepSettings(Settings * settings) {
 
 void interp1App::setup()
 {
-	mCamera.lookAt(vec3(0, 0, -16), vec3(0));
+	mCamera.lookAt(vec3(0, 0, 200), vec3(0));
 	mUiCamera = CameraUi(&mCamera, getWindow());
 
-	int numSplines = 5;
+	int numSplines = 20;
 	float splinesInc = 2.0 * M_PI / (float) numSplines;
 	for (int cnt = 0; cnt < numSplines; cnt++) {
 	    float angle = (float) cnt * splinesInc;
 	    vec3 splineOrigin = 5.0f * vec3(cosf(angle), sinf(angle), 0.0f);
-	    vec3 splineDirection = normalize(vec3(cosf(angle), sinf(angle), 1.0f));
+	    vec3 splineDirection = normalize(vec3(cosf(angle) / 2.0, sinf(angle) / 2.0, 1.0f));
 	    mFacetSplines.push_back(FacetSpline::create(splineOrigin, splineDirection));
 	}
 }
@@ -75,7 +75,7 @@ void interp1App::keyDown(KeyEvent event) {
 void interp1App::update()
 {
 	for (FacetSplineRef const & facetSpline : mFacetSplines) {
-		// facetSpline->update();
+		facetSpline->update();
 	}
 }
 

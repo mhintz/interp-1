@@ -1,6 +1,8 @@
 #include "FacetSpline.hpp"
 
-vector<mat4> calculateFrames(BSpline3f const & spline, int numSamples) {
+using std::vector;
+
+vector<mat4> calculateFrames(BSpline3f const & spline, int numSamples, std::function<float (float)> easeFunc) {
   if (numSamples < 3) {
     app::AppBase::get()->console() << "Asked to calculate frames with less than 3 steps. Invalid";
     return {};
@@ -13,7 +15,7 @@ vector<mat4> calculateFrames(BSpline3f const & spline, int numSamples) {
   // Note: t iterates from 0 to 1, over numSamples
   float tInc = 1.0f / (float) (numSamples - 1);
   for (int i = 0; i < numSamples; i++) {
-      float tVal = easeOutQuad(tInc * i);
+      float tVal = easeFunc(tInc * i);
       vec3 point, tangent;
       spline.get(tVal, & point, & tangent);
       pointsList.push_back(point);
@@ -52,6 +54,8 @@ FacetSpline::FacetSpline(vec3 origin, vec3 direction) : mOrigin(origin), mDirect
 	    mFacets.push_back(Facet::create(vec3(), quat()));
 	}
 
+	mGlobalScaleOffset = randFloat(10.0);
+
 	this->update();
 }
 
@@ -59,27 +63,31 @@ void FacetSpline::update() {
 	mXWalker.step();
 	mYWalker.step();
 
-	vector<vec3> splinePts;
+	vector<vec3> splinePts = { mOrigin }; // Always start at the spline's origin
 
 	quat directionOrientation = glm::rotation(vec3(0.0, 0.0, 1.0), mDirection);
-	float tInc = 1.0f / (float) (mNumCtrlPts - 1);
-	float noiseInc = 0.01f;
+	float noiseInc = 0.2f;
 	for (int num = 0; num < mNumCtrlPts; num++) {
-		vec3 origin = mOrigin + (num * mSplineIncrement) * mDirection;
-		float xOffset = mXWalker.sampleAt(noiseInc);
-		float yOffset = mYWalker.sampleAt(noiseInc);
+		vec3 localOrigin = mOrigin + (num * mSplineIncrement) * mDirection;
+		float xOffset = mXWalker.sampleAt(num * noiseInc);
+		float yOffset = mYWalker.sampleAt(num * noiseInc);
 		vec3 offset = directionOrientation * vec3(xOffset, yOffset, 0.0);
-		splinePts.push_back(origin + mSplineRadius * offset);
+		splinePts.push_back(localOrigin + mSplineRadius * offset);
 	}
 
 	mSpline = BSpline3f(splinePts, mSplineDegree, false, true);
+	mFrames = calculateFrames(mSpline, mNumFacets, easeNone);
 
-	mFrames = calculateFrames(mSpline, mNumFacets);
+	mGlobalScaleOffset += mScaleIncrement;
 
+	float scaleInc = 2.0 * M_PI / mNumFacets;
 	for (int idx = 0; idx < mNumFacets; idx++) {
 		vec3 facetPos, facetXAx, facetZAx, facetYAx;
 		FacetSpline::decomposeFrame(mFrames.at(idx), & facetPos, & facetXAx, & facetYAx, & facetZAx);
-		mFacets.at(idx)->update(facetPos, quat_cast(mat3(facetXAx, facetYAx, facetZAx)), vec3(1.0));
+		// To animate the scale, use this
+		// float scale = cosf(mGlobalScaleOffset + (mNumFacets - idx) * scaleInc) + 2.0f; // Ranges from 1.0 to 3.0
+		float scale = 1.0f;
+		mFacets.at(idx)->update(facetPos, quat_cast(mat3(facetXAx, facetYAx, facetZAx)), vec3(scale));
 	}
 }
 

@@ -1,19 +1,17 @@
 #pragma once
 
 #include <vector>
+#include <functional>
 
 #include "cinder/BSpline.h"
 #include "cinder/app/AppBase.h"
 #include "cinder/Easing.h"
-
-#include "glm/gtx/orthonormalize.hpp"
 
 #include "Node.hpp"
 #include "Facet.hpp"
 #include "NoiseWalker.hpp"
 
 using namespace ci;
-using std::vector;
 
 class FacetSpline;
 typedef std::unique_ptr<FacetSpline> FacetSplineBox;
@@ -29,22 +27,26 @@ public:
 	void update();
 	void draw();
 
+
 private:
-	vector<FacetRef> mFacets;
+	std::vector<FacetRef> mFacets;
 	vec3 mOrigin;
 	vec3 mDirection;
 	NoiseWalker mXWalker = NoiseWalker(0.001f);
 	NoiseWalker mYWalker = NoiseWalker(0.001f);
+	float mGlobalScaleOffset;
 
 	int mNumCtrlPts = 10;
 	float mCtrlAngleInc = 1.34 * M_2_PI;
-	float mSplineIncrement = 2.0f;
-	float mSplineRadius = 10.0f;
+	float mSplineIncrement = 10.0f;
+	float mSplineRadius = 20.0f;
 	int mSplineDegree = 3;
 	int mNumFacets = 30;
+	float mScaleIncrement = 0.04;
 
+	// Debug stuff for checking spline and frame appearances
 	BSpline3f mSpline;
-	vector<mat4> mFrames;
-	bool mDrawSpline = true;
-	bool mDrawFrames = true;
+	std::vector<mat4> mFrames;
+	bool mDrawSpline = false;
+	bool mDrawFrames = false;
 };
