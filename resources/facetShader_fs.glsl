@@ -12,11 +12,11 @@ void main() {
   vec3 toCamera = normalize(uCameraPosition - fWorldPosition);
   vec3 normal = normalize(fNormal);
 
-  float dotValue = dot(normal, toCamera) / 2.0 + 0.5;
-  dotValue = fract(dotValue * 5.314151);
+  float dotValue = abs(dot(normal, toCamera));
+  dotValue = fract(dotValue * 10.0);
 
-  vec3 partialColor = fract(fColor.xyz + vec3(dotValue / 3.0, dotValue / 2.0, dotValue / 1.0));
-  // vec3 partialColor = fract(fColor.xyz + vec3(dotValue));
+  // vec3 partialColor = fract(fColor.xyz + vec3(dotValue / 3.0, dotValue / 2.0, dotValue / 1.0));
+  vec3 partialColor = fract(fColor.xyz + vec3(dotValue));
   // vec3 partialColor = vec3(dotValue);
 
   FragColor = vec4(partialColor, fColor.a);
