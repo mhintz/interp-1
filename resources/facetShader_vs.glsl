@@ -15,7 +15,6 @@ out vec4 fColor;
 void main() {
   gl_Position = ciModelViewProjection * vec4(ciPosition, 1);
   fWorldPosition = (ciModelMatrix * vec4(ciPosition, 1)).xyz;
-  fWorldPosition = ciPosition;
   fNormal = ciNormalMatrix * ciNormal;
   fColor = ciColor;
 }
