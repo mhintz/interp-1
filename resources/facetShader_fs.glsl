@@ -16,8 +16,9 @@ void main() {
   dotValue = fract(dotValue * 3.0);
 
   // vec3 partialColor = fract(fColor.xyz + vec3(dotValue / 3.0, dotValue / 2.0, dotValue / 1.0));
-  vec3 partialColor = fract(fColor.xyz + vec3(dotValue));
+//  vec3 partialColor = fract(fColor.xyz + vec3(dotValue));
   // vec3 partialColor = vec3(dotValue);
+	vec3 partialColor = fColor.xyz;
 
   FragColor = vec4(partialColor, fColor.a);
 }

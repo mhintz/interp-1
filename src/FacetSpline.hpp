@@ -33,8 +33,8 @@ private:
 	std::vector<FacetRef> mFacets;
 	vec3 mOrigin;
 	vec3 mDirection;
-	NoiseWalker mXWalker = NoiseWalker(0.001f);
-	NoiseWalker mYWalker = NoiseWalker(0.001f);
+	NoiseWalker mXWalker = NoiseWalker(0.01f);
+	NoiseWalker mYWalker = NoiseWalker(0.01f);
 	float mGlobalScaleOffset;
 
 	int mNumCtrlPts = 10;
