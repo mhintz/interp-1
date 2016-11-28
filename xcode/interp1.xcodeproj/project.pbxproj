@@ -20,6 +20,8 @@
 		59BA7C1F68AB4E7AB0DAC171 /* CinderApp.icns in Resources */ = {isa = PBXBuildFile; fileRef = 7F6365B40E634CC48328600A /* CinderApp.icns */; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
 		EACB6C72DEFE455FBE6BFBCF /* interp1App.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3173F971B21542E79751D87A /* interp1App.cpp */; };
+		EF54FA7D1DECC3B600EF733F /* GeomEater.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EF54FA741DECC3B600EF733F /* GeomEater.cpp */; };
+		EF54FA7E1DECC3B600EF733F /* Math.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EF54FA771DECC3B600EF733F /* Math.cpp */; };
 		EF76DB8E1D46704300691121 /* Facet.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EF76DB8C1D46704300691121 /* Facet.cpp */; };
 		EFA7BDFE1D46A89E00979012 /* facetShader_fs.glsl in Resources */ = {isa = PBXBuildFile; fileRef = EFA7BDFC1D46A89E00979012 /* facetShader_fs.glsl */; };
 		EFA7BDFF1D46A89E00979012 /* facetShader_vs.glsl in Resources */ = {isa = PBXBuildFile; fileRef = EFA7BDFD1D46A89E00979012 /* facetShader_vs.glsl */; };
@@ -47,14 +49,19 @@
 		8D1107320486CEB800E47090 /* interp1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = interp1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E6666956C654545930EBB7F /* interp1_Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = "\"\""; path = interp1_Prefix.pch; sourceTree = "<group>"; };
 		CA4B836F6D314D26B9E6F82C /* Resources.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Resources.h; path = ../include/Resources.h; sourceTree = "<group>"; };
-		EF76DB8A1D4641D400691121 /* Node.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = Node.hpp; path = ../src/Node.hpp; sourceTree = "<group>"; };
+		EF54FA741DECC3B600EF733F /* GeomEater.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GeomEater.cpp; path = "../../../cinder/blocks/core-util/GeomEater.cpp"; sourceTree = "<group>"; };
+		EF54FA751DECC3B600EF733F /* GeomEater.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GeomEater.h; path = "../../../cinder/blocks/core-util/GeomEater.h"; sourceTree = "<group>"; };
+		EF54FA761DECC3B600EF733F /* Gradient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Gradient.h; path = "../../../cinder/blocks/core-util/Gradient.h"; sourceTree = "<group>"; };
+		EF54FA771DECC3B600EF733F /* Math.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Math.cpp; path = "../../../cinder/blocks/core-util/Math.cpp"; sourceTree = "<group>"; };
+		EF54FA781DECC3B600EF733F /* Math.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Math.h; path = "../../../cinder/blocks/core-util/Math.h"; sourceTree = "<group>"; };
+		EF54FA7B1DECC3B600EF733F /* Node.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = Node.hpp; path = "../../../cinder/blocks/core-util/Node.hpp"; sourceTree = "<group>"; };
+		EF54FA7C1DECC3B600EF733F /* NoiseWalker.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = NoiseWalker.hpp; path = "../../../cinder/blocks/core-util/NoiseWalker.hpp"; sourceTree = "<group>"; };
 		EF76DB8C1D46704300691121 /* Facet.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Facet.cpp; path = ../src/Facet.cpp; sourceTree = "<group>"; };
 		EF76DB8D1D46704300691121 /* Facet.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = Facet.hpp; path = ../src/Facet.hpp; sourceTree = "<group>"; };
 		EFA7BDFC1D46A89E00979012 /* facetShader_fs.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = facetShader_fs.glsl; path = ../resources/facetShader_fs.glsl; sourceTree = "<group>"; };
 		EFA7BDFD1D46A89E00979012 /* facetShader_vs.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = facetShader_vs.glsl; path = ../resources/facetShader_vs.glsl; sourceTree = "<group>"; };
 		EFA7BE001D46AB5900979012 /* FacetSpline.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = FacetSpline.cpp; path = ../src/FacetSpline.cpp; sourceTree = "<group>"; };
 		EFA7BE011D46AB5900979012 /* FacetSpline.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = FacetSpline.hpp; path = ../src/FacetSpline.hpp; sourceTree = "<group>"; };
-		EFA7BE041D46C2D800979012 /* NoiseWalker.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = NoiseWalker.hpp; path = ../src/NoiseWalker.hpp; sourceTree = "<group>"; };
 		EFA7BE061D47B29500979012 /* ShaderCache.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ShaderCache.cpp; path = ../src/ShaderCache.cpp; sourceTree = "<group>"; };
 		EFA7BE071D47B29500979012 /* ShaderCache.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = ShaderCache.hpp; path = ../src/ShaderCache.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -92,10 +99,8 @@
 			isa = PBXGroup;
 			children = (
 				3173F971B21542E79751D87A /* interp1App.cpp */,
-				EF76DB8A1D4641D400691121 /* Node.hpp */,
 				EFA7BE001D46AB5900979012 /* FacetSpline.cpp */,
 				EFA7BE011D46AB5900979012 /* FacetSpline.hpp */,
-				EFA7BE041D46C2D800979012 /* NoiseWalker.hpp */,
 				EF76DB8C1D46704300691121 /* Facet.cpp */,
 				EF76DB8D1D46704300691121 /* Facet.hpp */,
 				EFA7BE061D47B29500979012 /* ShaderCache.cpp */,
@@ -144,6 +149,7 @@
 			children = (
 				01B97315FEAEA392516A2CEA /* Blocks */,
 				29B97315FDCFA39411CA2CEA /* Headers */,
+				EF54FA801DECC3BC00EF733F /* core-util */,
 				080E96DDFE201D6D7F000001 /* Source */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
@@ -179,6 +185,20 @@
 				1058C7A2FEA54F0111CA2CBB /* Other Frameworks */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		EF54FA801DECC3BC00EF733F /* core-util */ = {
+			isa = PBXGroup;
+			children = (
+				EF54FA741DECC3B600EF733F /* GeomEater.cpp */,
+				EF54FA751DECC3B600EF733F /* GeomEater.h */,
+				EF54FA761DECC3B600EF733F /* Gradient.h */,
+				EF54FA771DECC3B600EF733F /* Math.cpp */,
+				EF54FA781DECC3B600EF733F /* Math.h */,
+				EF54FA7B1DECC3B600EF733F /* Node.hpp */,
+				EF54FA7C1DECC3B600EF733F /* NoiseWalker.hpp */,
+			);
+			name = "core-util";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -249,7 +269,9 @@
 				EF76DB8E1D46704300691121 /* Facet.cpp in Sources */,
 				EACB6C72DEFE455FBE6BFBCF /* interp1App.cpp in Sources */,
 				EFA7BE021D46AB5900979012 /* FacetSpline.cpp in Sources */,
+				EF54FA7E1DECC3B600EF733F /* Math.cpp in Sources */,
 				EFA7BE081D47B29500979012 /* ShaderCache.cpp in Sources */,
+				EF54FA7D1DECC3B600EF733F /* GeomEater.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
